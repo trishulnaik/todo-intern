@@ -1,5 +1,5 @@
-import ToDoForm from "./components/ToDoForm"
-import ToDoList from "./components/ToDoList"
+import ToDoForm from "./components/ToDoForm";
+import ToDoList from "./components/ToDoList";
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <hr />
       <ToDoList />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
