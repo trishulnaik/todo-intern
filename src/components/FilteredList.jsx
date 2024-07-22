@@ -27,7 +27,7 @@ export default function FilteredList({ data, activeClickIndex }) {
             <span style={item.completed? {textDecoration: "line-through"}:{}}>{item.text}</span>
             <button
               onClick={() =>
-                dispatch(todoDelete({ id: item.id, priority: item.priority }))
+                dispatch(todoDelete({ id: item.id, priority: item.priority, completeStatus: item.completed }))
               }
             >
               Delete

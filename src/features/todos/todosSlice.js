@@ -14,9 +14,15 @@ const todoSlice = createSlice({
       });
     },
     todoDelete(state, action) {
-      state[action.payload.priority] = state[action.payload.priority].filter(
-        (item) => item.id !== action.payload.id
-      );
+      if(action.payload.completeStatus){
+        state[state.length-1] = state[state.length-1].filter(
+          (item) => item.id !== action.payload.id
+        );
+      }else{
+        state[action.payload.priority] = state[action.payload.priority].filter(
+          (item) => item.id !== action.payload.id
+        );
+      }
     },
     todoToggled(state, action) {
       state[action.payload.priority].forEach((item)=>{
