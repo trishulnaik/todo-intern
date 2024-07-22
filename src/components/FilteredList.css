@@ -5,9 +5,13 @@
 .list-field{
     display: flex;
     justify-content: space-between;
-    margin: 20px;
+    margin: 20px 0px;
 }
-
+.filtered-list-heading{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid black;
+}
 .unfunctional-btn[status='done']{
     color: green;
     border: 2px solid green;

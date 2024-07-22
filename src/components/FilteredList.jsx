@@ -5,8 +5,16 @@ import './FilteredList.css';
 
 export default function FilteredList({ data, activeClickIndex }) {
   const dispatch = useDispatch();
+  const priorityMap = ["highest","high","medium","low","least"];
   return (
     <div className="filtered-list">
+      <div className="filtered-list-heading">
+        <span>Done</span>
+        <span>Priority</span>
+        <span>Task</span>
+        <span>Delete</span>
+      </div>
+      
       {data &&
         data.map((item) => (
           <div key={item.id} className="list-field">
@@ -15,6 +23,7 @@ export default function FilteredList({ data, activeClickIndex }) {
               (<div className="unfunctional-btn" status={item.completed? 'done': 'undone'}>X</div>)
               }
             </span>
+            <span>{priorityMap[item.priority+1]}</span>
             <span style={item.completed? {textDecoration: "line-through"}:{}}>{item.text}</span>
             <button
               onClick={() =>
