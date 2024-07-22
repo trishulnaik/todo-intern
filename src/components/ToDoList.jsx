@@ -4,9 +4,9 @@ import FilteredList from "./FilteredList";
 
 export default function ToDoList() {
   const list = useSelector((state) => state.todos);
-  //     console.log("list",list);
   const [filterListState, setFilterListState] = useState([]);
   const [filterMode, setFilterMode] = useState("");
+  const [activeIndex, setActiveIndex] = useState(5);
   const ListFilter = (type) => {
     let filteredList = [];
     list.map((innerItem) => {
@@ -22,15 +22,24 @@ export default function ToDoList() {
     });
     setFilterListState([...filteredList]);
   };
+  const activeClickIndex = () => {
+    let i = 0;
+    for(;i<list.length-1;i++){
+      if(list[i].length!==0) return i
+    }
+    return i;
+  }
+  let a = 10;
   useEffect(() => {
     ListFilter(filterMode);
+    setActiveIndex(activeClickIndex());
   }, [list, filterMode]);
   return (
     <div className="todo-list">
       <button onClick={() => setFilterMode("")}>All</button>
       <button onClick={() => setFilterMode("personal")}>Personal</button>
       <button onClick={() => setFilterMode("work")}>Work</button>
-      <FilteredList data={filterListState} />
+      <FilteredList data={filterListState} activeClickIndex={activeIndex}/>
     </div>
   );
 }

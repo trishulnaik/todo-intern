@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const todoSlice = createSlice({
   name: "todos",
-  initialState: [[], [], [], [], []],
+  initialState: [[], [], [], [], [], []],
   reducers: {
     todoAdd(state, action) {
       state[action.payload.priority].push({
@@ -18,7 +18,19 @@ const todoSlice = createSlice({
         (item) => item.id !== action.payload.id
       );
     },
-    todoToggled() {},
+    todoToggled(state, action) {
+      state[action.payload.priority].forEach((item)=>{
+        if(item.id === action.payload.id){
+          item.completed= !item.complete
+          item.priority= state.length-1
+          state[state.length-1].push(item)
+        }
+        
+      })
+      state[action.payload.priority] = state[action.payload.priority].filter(
+        (item) => item.id !== action.payload.id
+      );
+    },
     todoPatch() {},
   },
 });
