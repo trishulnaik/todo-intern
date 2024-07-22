@@ -38,9 +38,9 @@ export default function ToDoList() {
   return (
     <div className="todo-list">
       <div className="btn-group">
-      <button onClick={() => setFilterMode("")} status={filterMode===""?"on":"off"}>All</button>
-      <button onClick={() => setFilterMode("personal")} status={filterMode==="personal"?"on":"off"}>Personal</button>
-      <button onClick={() => setFilterMode("work")} status={filterMode==="work"?"on":"off"}>Work</button>
+      <button className="switch-btn" onClick={() => setFilterMode("")} status={filterMode===""?"on":"off"}>All</button>
+      <button className="switch-btn"  onClick={() => setFilterMode("personal")} status={filterMode==="personal"?"on":"off"}>Personal</button>
+      <button className="switch-btn"  onClick={() => setFilterMode("work")} status={filterMode==="work"?"on":"off"}>Work</button>
       </div>
       <FilteredList data={filterListState} activeClickIndex={activeIndex}/>
     </div>

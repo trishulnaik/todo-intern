@@ -4,11 +4,14 @@
 }
 .btn-group{
     display: flex;
-    justify-content: center;
+    justify-content: center;    
 }
 .btn-group button{
     border: none;
     font-size: 20px;
+    margin: 0px 10px;
+    padding: 10px;
+    border: 1px solid white;
 }
 .btn-group button[status='on']{
     background-color: black;
@@ -18,3 +21,7 @@
     background-color: white;
     color: black;
 }
+.switch-btn:hover{
+    border: 1px solid black;
+    cursor: pointer; 
+ }
