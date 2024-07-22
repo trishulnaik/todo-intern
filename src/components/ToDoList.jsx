@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import FilteredList from "./FilteredList";
+import './ToDoList.css'
 
 export default function ToDoList() {
   const list = useSelector((state) => state.todos);
@@ -36,9 +37,11 @@ export default function ToDoList() {
   }, [list, filterMode]);
   return (
     <div className="todo-list">
-      <button onClick={() => setFilterMode("")}>All</button>
-      <button onClick={() => setFilterMode("personal")}>Personal</button>
-      <button onClick={() => setFilterMode("work")}>Work</button>
+      <div className="btn-group">
+      <button onClick={() => setFilterMode("")} status={filterMode===""?"on":"off"}>All</button>
+      <button onClick={() => setFilterMode("personal")} status={filterMode==="personal"?"on":"off"}>Personal</button>
+      <button onClick={() => setFilterMode("work")} status={filterMode==="work"?"on":"off"}>Work</button>
+      </div>
       <FilteredList data={filterListState} activeClickIndex={activeIndex}/>
     </div>
   );

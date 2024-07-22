@@ -1,0 +1,19 @@
+.filtered-list{
+    margin: 20px;
+}
+
+.list-field{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.unfunctional-btn[status='done']{
+    color: green;
+    border: 2px solid green;
+}   
+
+.unfunctional-btn[status='undone']{
+    color: red;
+    border: 2px solid red;
+}   

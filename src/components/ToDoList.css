@@ -1,0 +1,20 @@
+.todo-list{
+    max-width: 500px;
+    margin:20px auto;
+}
+.btn-group{
+    display: flex;
+    justify-content: center;
+}
+.btn-group button{
+    border: none;
+    font-size: 20px;
+}
+.btn-group button[status='on']{
+    background-color: black;
+    color: white;
+}
+.btn-group button[status='off']{
+    background-color: white;
+    color: black;
+}

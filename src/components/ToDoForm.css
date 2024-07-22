@@ -1,0 +1,12 @@
+form{
+    max-width: 300px;
+    border: 2px solid black;
+    margin: auto;
+    padding: 20px; 
+}
+
+form input, form select, form button {
+    display: block;
+    width: 300px;
+    margin: 10px 0px;
+}

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { todoAdd } from "../features/todos/todosSlice";
+import './ToDoForm.css'
+
 
 const defaultState = {
   id: null,
@@ -53,7 +55,6 @@ export default function ToDoForm() {
         value={taskTitle.text}
         required
       />
-      <br />
       <label htmlFor="priority">Priority: </label>
       <select
         name="priority"
@@ -67,7 +68,6 @@ export default function ToDoForm() {
         <option value="3">Low</option>
         <option value="4">Least</option>
       </select>
-      <br />
       <label htmlFor="category">Category: </label>
       <select
         name="category"
