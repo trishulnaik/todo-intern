@@ -12,6 +12,9 @@
     justify-content: space-between;
     border-bottom: 2px solid black;
 }
+.unfunctional-btn:hover {
+    cursor: not-allowed;
+}
 .unfunctional-btn[status='done']{
     color: green;
     border: 2px solid green;
@@ -21,3 +24,7 @@
     color: red;
     border: 2px solid red;
 }   
+
+.check-status{
+    cursor: pointer;
+}
