@@ -22,7 +22,6 @@ const todoSlice = createSlice({
       state[action.payload.priority].forEach((item)=>{
         if(item.id === action.payload.id){
           item.completed= !item.complete
-          item.priority= state.length-1
           state[state.length-1].push(item)
         }
         
