@@ -10,9 +10,12 @@ const todoSlice = createSlice({
                 text: action.payload.text,
                 completed: false,
                 category: action.payload.category,
+                priority: action.payload.priority
             })
         },
-        todoDelete(){},
+        todoDelete(state,action){
+            state[action.payload.priority] = state[action.payload.priority].filter(item => item.id!==action.payload.id);
+        },
         todoToggled(){},
         todoPatch(){}, 
     }
