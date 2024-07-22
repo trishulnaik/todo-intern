@@ -23,7 +23,7 @@ export default function FilteredList({ data, activeClickIndex }) {
               (<div className="unfunctional-btn" status={item.completed? 'done': 'undone'}>X</div>)
               }
             </span>
-            <span>{priorityMap[item.priority+1]}</span>
+            <span>{priorityMap[item.priority]}</span>
             <span style={item.completed? {textDecoration: "line-through"}:{}}>{item.text}</span>
             <button
               onClick={() =>
