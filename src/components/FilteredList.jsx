@@ -20,7 +20,7 @@ export default function FilteredList({ data, activeClickIndex }) {
           <div key={item.id} className="list-field">
             <span>
               {(!item.completed && item.priority === activeClickIndex) ? (<input type="checkbox" name="checkStatus" className="check-status" onClick={()=>dispatch(todoToggled({id: item.id, priority: item.priority}))}/>) : 
-              (<div className="unfunctional-btn" status={item.completed? 'done': 'undone'}>X</div>)
+              (<div className="unfunctional-btn" status={item.completed? 'done': 'undone'} title={item.completed? 'Task is Completed': 'Complete Higher Priority Task first'}>X</div>)
               }
             </span>
             <span>{priorityMap[item.priority]}</span>

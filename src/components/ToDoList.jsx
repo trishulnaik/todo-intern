@@ -5,9 +5,7 @@ import './ToDoList.css'
 
 export default function ToDoList() {
   const list = useSelector((state) => state.todos);
-  const [filterListState, setFilterListState] = useState([]);
   const [filterMode, setFilterMode] = useState("");
-  const [activeIndex, setActiveIndex] = useState(5);
   const ListFilter = (type) => {
     let filteredList = [];
     list.map((innerItem) => {
@@ -21,7 +19,7 @@ export default function ToDoList() {
         }
       });
     });
-    setFilterListState([...filteredList]);
+    return filteredList;
   };
   const activeClickIndex = () => {
     let i = 0;
@@ -30,11 +28,9 @@ export default function ToDoList() {
     }
     return i;
   }
-  let a = 10;
-  useEffect(() => {
-    ListFilter(filterMode);
-    setActiveIndex(activeClickIndex());
-  }, [list, filterMode]);
+  const FinalListFilter = ListFilter(filterMode);
+  const ActiveIndex = activeClickIndex();
+  
   return (
     <div className="todo-list">
       <div className="btn-group">
@@ -42,7 +38,7 @@ export default function ToDoList() {
       <button className="switch-btn"  onClick={() => setFilterMode("personal")} status={filterMode==="personal"?"on":"off"}>Personal</button>
       <button className="switch-btn"  onClick={() => setFilterMode("work")} status={filterMode==="work"?"on":"off"}>Work</button>
       </div>
-      <FilteredList data={filterListState} activeClickIndex={activeIndex}/>
+      <FilteredList data={FinalListFilter} activeClickIndex={ActiveIndex}/>
     </div>
   );
 }
