@@ -5,7 +5,7 @@ import './FilteredList.css';
 
 export default function FilteredList({ data, activeClickIndex }) {
   const dispatch = useDispatch();
-  const priorityMap = ["highest","high","medium","low","least"];
+  const priorityMap = ["Highest","High","Medium","Low","Least"];
   return (
     <div className="filtered-list">
       <div className="filtered-list-heading">

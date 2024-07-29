@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { todoAdd } from "../features/todos/todosSlice";
-import './ToDoForm.css'
-
+import "./ToDoForm.css";
 
 const defaultState = {
   id: null,
   text: "",
-  priority: 0,
+  priority: "-1",
   category: "personal",
 };
 export default function ToDoForm() {
@@ -33,17 +32,14 @@ export default function ToDoForm() {
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    settaskTitle((prev) => ({
-      ...prev,
+    const stateBeforeSubmit = {
+      ...taskTitle,
       id: Date.now(),
-    }));
+    };
+    dispatch(todoAdd(stateBeforeSubmit));
+    settaskTitle({ ...defaultState });
   };
-  useEffect(() => {
-    if (taskTitle.id) {
-      dispatch(todoAdd(taskTitle));
-      settaskTitle({ ...defaultState });
-    }
-  }, [taskTitle.id]);
+
   return (
     <form onSubmit={submitHandler}>
       <label htmlFor="taskTitle">Task: </label>
@@ -61,7 +57,9 @@ export default function ToDoForm() {
         id="priority"
         onChange={priorityHandler}
         value={taskTitle.priority}
+        required
       >
+        <option value="">Select Priority</option>
         <option value="0">Highest</option>
         <option value="1">High</option>
         <option value="2">Medium</option>
